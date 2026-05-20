@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khalifah Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      min-height:100vh;
+      overflow-x:hidden;
+      color:white;
+      background-image:
+      linear-gradient(
+        rgba(15, 4, 28, 0.85),
+        rgba(10, 2, 18, 0.95)
+      ),
+      url('baground.jpg');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
+
+    nav{
+      width:100%;
+      padding:30px 90px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      background:rgba(10, 2, 18, 0.4);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      z-index:1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:800;
+      color:white;
+      text-shadow:
+      0 0 12px rgba(235, 0, 139, 0.8),
+      0 0 25px rgba(235, 0, 139, 0.4);
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:35px;
+    }
+
+    nav ul li a{
+      color:#d6d6d6;
+      text-decoration:none;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#eb008b;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:0 20px;
+    }
+
+    .hero-content{
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-size:95px;
+      font-weight:800;
+      margin-bottom:20px;
+      background: linear-gradient(45deg, #ffffff, #ff71cd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 20px rgba(235,0,139,0.3));
+    }
+
+    .hero h2{
+      font-size:28px;
+      font-weight:500;
+      color:#d6d6d6;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:18px;
+      line-height:1.9;
+      color:#a8a8a8;
+    }
+
+    /* SOCIAL ICON */
+    .social-icons{
+      margin-top:35px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:22px;
+    }
+
+    .social-icons a{
+      width:62px;
+      height:62px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      text-decoration:none;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      color:white;
+      font-size:24px;
+      transition:0.35s ease;
+    }
+
+    .social-icons a:hover{
+      transform:translateY(-6px) scale(1.05);
+      background:rgba(235, 0, 139, 0.2);
+      border-color:#eb008b;
+      box-shadow:0 0 25px rgba(235, 0, 139, 0.45);
+    }
+
+    /* ABOUT */
+    .about-section{
+      padding:140px 40px;
+    }
+
+    .about-container{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:90px;
+      flex-wrap:wrap;
+    }
+
+    .about-image img{
+      width:350px;
+      border-radius:28px;
+      object-fit:cover;
+      border:1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:0 15px 40px rgba(0,0,0,0.45);
+      transition:0.4s;
+    }
+
+    .about-image img:hover{
+      transform:scale(1.02);
+    }
+
+    .about-text{
+      max-width:550px;
+    }
+
+    .about-text h1{
+      font-size:60px;
+      margin-bottom:30px;
+      text-shadow:0 0 15px rgba(235, 0, 139, 0.3);
+    }
+
+    .about-text p{
+      color:#b8b8b8;
+      line-height:1.9;
+      margin-bottom:20px;
+      font-size:17px;
+    }
+
+    .about-info{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(2,220px);
+      gap:25px 40px;
+    }
+
+    .about-info div{
+      padding-bottom:12px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .about-info span{
+      display:block;
+      font-size:13px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:#7f7f7f;
+      margin-bottom:8px;
+    }
+
+    .about-info p{
+      font-size:17px;
+      color:white;
+      margin:0;
+    }
+
+    /* PROJECT */
+    .project-section{
+      padding:120px 40px;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:60px;
+      margin-bottom:70px;
+      text-shadow:0 0 15px rgba(235, 0, 139, 0.3);
+    }
+
+    .project-container{
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      padding:35px;
+      border-radius:25px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(10px);
+      transition:0.4s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-8px);
+      background:rgba(255,255,255,0.05);
+      border-color: rgba(235, 0, 139, 0.3);
+      box-shadow: 0 10px 30px rgba(235, 0, 139, 0.1);
+    }
+
+    .project-card h3{
+      font-size:24px;
+      margin-bottom:15px;
+    }
+
+    .project-card p{
+      color:#b8b8b8;
+      line-height:1.8;
+    }
+
+    /* ALBUM SECTION */
+    .album-section {
+      padding: 100px 40px 100px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .album-title {
+      text-align: center;
+      font-size: 60px;
+      margin-bottom: 60px;
+      color: white;
+      text-shadow: 0 0 20px rgba(235, 0, 139, 0.6);
+    }
+
+    .album-ui-wrapper {
+      width: 100%;
+      max-width: 850px;
+      background: rgba(20, 5, 35, 0.6);
+      border: 1px solid rgba(235, 0, 139, 0.25);
+      border-radius: 24px;
+      padding: 30px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 
+        0 30px 70px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(235, 0, 139, 0.15);
+    }
+
+    .main-display-card {
+      width: 100%;
+      height: 400px;
+      border-radius: 18px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      margin-bottom: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .main-display-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 40%, rgba(10,2,18,0.85) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 25px;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .card-badge {
+      background: #eb008b;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 0 15px rgba(235, 0, 139, 0.6);
+    }
+
+    .card-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.15);
+      line-height: 1;
+    }
+
+    .card-bottom {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .card-bottom h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-bottom p {
+      font-size: 14px;
+      color: #d6d6d6;
+      opacity: 0.85;
+    }
+
+    .thumbnail-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 10px 5px;
+    }
+
+    .thumbnail-container::-webkit-scrollbar {
+      display: none;
+    }
+    .thumbnail-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .thumb {
+      width: 75px;
+      height: 55px;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+      opacity: 0.4;
+      border: 2px solid transparent;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .thumb:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    .thumb.active {
+      opacity: 1;
+      border-color: #eb008b;
+      transform: scale(1.12);
+      box-shadow: 0 0 15px rgba(235, 0, 139, 0.6);
+    }
+
+    .album-controls {
+      margin-top: 25px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 35px;
+      border-radius: 40px;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+    }
+
+    .album-controls button {
+      background: none;
+      border: none;
+      color: #a8a8a8;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .album-controls button:hover {
+      color: #eb008b;
+      transform: scale(1.15);
+    }
+
+    /* GUESTBOOK CLOUD STYLE */
+    .anonymous-section {
+      padding: 60px 40px 140px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .anon-wrapper {
+      width: 100%;
+      max-width: 850px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .anon-form {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .anon-form input[type="text"] {
+      width: 100%;
+      background: rgba(10, 2, 18, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px 15px;
+      color: white;
+      font-size: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .anon-form textarea {
+      width: 100%;
+      background: rgba(10, 2, 18, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 15px;
+      color: white;
+      font-size: 15px;
+      resize: none;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .anon-form input:focus, .anon-form textarea:focus {
+      border-color: #eb008b;
+      box-shadow: 0 0 15px rgba(235, 0, 139, 0.2);
+    }
+
+    .anon-form button {
+      align-self: flex-end;
+      background: linear-gradient(45deg, #eb008b, #ff71cd);
+      border: none;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 15px rgba(235, 0, 139, 0.4);
+      transition: 0.3s;
+    }
+
+    .anon-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(235, 0, 139, 0.6);
+    }
+
+    .anon-box-container {
+      max-height: 450px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding-right: 5px;
+    }
+
+    .anon-box-container::-webkit-scrollbar {
+      width: 6px;
+    }
+    .anon-box-container::-webkit-scrollbar-thumb {
+      background: rgba(235, 0, 139, 0.3);
+      border-radius: 10px;
+    }
+
+    .message-bubble {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 18px 22px;
+      position: relative;
+      animation: slideIn 0.4s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #7f7f7f;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .message-author {
+      color: #ff71cd;
+      font-weight: 600;
+    }
+
+    .message-text {
+      color: #e0e0e0;
+      font-size: 15px;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    /* SKILLS EXTENSIONS */
+    .skills-container {
+      margin-top: 35px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .skill-tag {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+    .skill-tag.html:hover { color: #e34c26; border-color: #e34c26; box-shadow: 0 0 15px rgba(227, 76, 38, 0.4); transform: translateY(-3px); }
+    .skill-tag.css:hover { color: #264de4; border-color: #264de4; box-shadow: 0 0 15px rgba(38, 77, 228, 0.4); transform: translateY(-3px); }
+    .skill-tag.js:hover { color: #f0db4f; border-color: #f0db4f; box-shadow: 0 0 15px rgba(240, 219, 79, 0.4); transform: translateY(-3px); }
+    .skill-tag.mysql:hover { color: #00758f; border-color: #00758f; box-shadow: 0 0 15px rgba(0, 117, 143, 0.4); transform: translateY(-3px); }
+    .skill-tag.git:hover { color: #f1502f; border-color: #f1502f; box-shadow: 0 0 15px rgba(241, 80, 47, 0.4); transform: translateY(-3px); }
+
+    #toast-notification {
+      position: fixed;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20, 5, 35, 0.85);
+      border: 1px solid #eb008b;
+      box-shadow: 0 0 20px rgba(235, 0, 139, 0.4);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 9999;
+      transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      backdrop-filter: blur(10px);
+    }
+    #toast-notification.show { bottom: 40px; }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      color:#8a8a8a;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media(max-width:768px){
+      nav{ padding:25px; }
+      nav ul{ gap:18px; }
+      .hero h1{ font-size:58px; }
+      .hero h2{ font-size:22px; }
+      .about-text h1, .section-title, .album-title{ font-size:42px; }
+      .about-image img{ width:280px; }
+      .about-info{ grid-template-columns:1fr; }
+      .main-display-card { height: 280px; }
+      .card-bottom h2 { font-size: 26px; }
+      .thumb { width: 60px; height: 45px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Khalifah.</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+      <h1><span id="greeting">Hi</span>, I'm Khalifah</h1>
+      <h2>I'm a <span id="typewriter" style="color: #eb008b; font-weight: 700; border-right: 3px solid #eb008b; padding-right: 5px;"></span></h2>
+      <p>Currently studying Information Systems while developing skills in front-end and web technologies.</p>
+      
+      <div class="social-icons">
+        <a href="https://instagram.com/nadifamnu_" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/6282114525001" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:khalifahnadif26@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-image" data-aos="fade-up" data-aos-duration="1200">
+        <img src="foto.jpeg" alt="Khalifah">
+      </div>
+      <div class="about-text" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
+        <h1>About Me</h1>
+        <p>I am an Information Systems student at Gunadarma University with a strong interest in front-end development and modern web design.</p>
+        <p>I enjoy creating clean and responsive interfaces while continuously learning new technologies and improving my development skills through projects and exploration.</p>
+
+        <div class="skills-container">
+          <span class="skill-tag html"><i class="fa-brands fa-html5"></i> HTML5</span>
+          <span class="skill-tag css"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+          <span class="skill-tag js"><i class="fa-brands fa-square-js"></i> JavaScript</span>
+          <span class="skill-tag mysql"><i class="fa-solid fa-database"></i> MySQL</span>
+          <span class="skill-tag git"><i class="fa-brands fa-git-alt"></i> Git</span>
+        </div>
+        
+        <div class="about-info">
+          <div><span>Name</span><p>Khalifah Amnu Annadif</p></div>
+          <div><span>University</span><p>Gunadarma University</p></div>
+          <div><span>Major</span><p>Information Systems</p></div>
+          <div><span>Semester</span><p>4</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <h1 class="section-title" data-aos="fade-up">Projects</h1>
+    <div class="project-container">
+      <div class="project-card" data-aos="fade-up">
+        <h3>Portfolio Website</h3>
+        <p>Modern personal portfolio website with responsive and elegant UI design.</p>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Landing Page Design</h3>
+        <p>Clean and modern landing page built with responsive layout and minimal design.</p>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+        <h3>Database Project</h3>
+        <p>Academic database project using MySQL for data management and system design.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="album-section">
+    <h1 class="album-title" data-aos="fade-up">Memories</h1>
+
+    <div class="album-ui-wrapper" data-aos="fade-up" data-aos-delay="100">
+      <div class="main-display-card">
+        <img id="main-album-img" src="teman1.jpeg" alt="Featured Memory">
+        <div class="card-overlay">
+          <div class="card-top">
+            <div class="card-badge">
+              <i class="fa-solid fa-heart"></i> <span id="album-badge-text">Keluarga</span>
+            </div>
+            <div class="card-number" id="album-card-num">01</div>
+          </div>
+          <div class="card-bottom">
+            <h2 id="album-main-title">Saat Berharga</h2>
+            <p id="album-sub-title">kenangan tak terlupakan bersama mereka</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="thumbnail-container">
+        <img class="thumb active" src="teman1.jpeg" onclick="changeAlbumItem(this, 0)" data-title="Saat Berharga" data-sub="kenangan tak terlupakan bersama mereka" data-badge="Keluarga" alt="">
+        <img class="thumb" src="teman2.jpeg" onclick="changeAlbumItem(this, 1)" data-title="Keseruan Kampus" data-sub="Hari-hari penuh tawa di ruang kelas" data-badge="Teman" alt="">
+        <img class="thumb" src="teman3.jpeg" onclick="changeAlbumItem(this, 2)" data-title="Projek Sukses" data-sub="Begadang demi mengejar deadline sistem bimbingan" data-badge="Teamwork" alt="">
+        <img class="thumb" src="teman4.jpeg" onclick="changeAlbumItem(this, 3)" data-title="Nongkrong Santai" data-sub="Kopi hangat dan obrolan masa depan" data-badge="Chill" alt="">
+        <img class="thumb" src="teman5.jpeg" onclick="changeAlbumItem(this, 4)" data-title="Langkah Bersama" data-sub="Setiap sudut kampus punya ceritanya sendiri" data-badge="Masa Depan" alt="">
+        <img class="thumb" src="teman6.jpeg" onclick="changeAlbumItem(this, 5)" data-title="Awal Masuk Kampus" data-sub="Mulai perjalanan baru" data-badge="Solidaritas" alt="">
+      </div>
+
+      <div class="album-controls">
+        <button onclick="navigateAlbum(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button><i class="fa-solid fa-plus"></i></button>
+        <button><i class="fa-solid fa-share-nodes"></i></button>
+        <button onclick="navigateAlbum(1)"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="anonymous-section">
+    <h1 class="section-title" data-aos="fade-up">Leave a Message</h1>
+    
+    <div class="anon-wrapper" data-aos="fade-up" data-aos-delay="100">
+      <div class="anon-form">
+        <input type="text" id="anon-name" placeholder="Nama kamu... (atau kosongkan untuk Anonim)" required>
+        <textarea id="anon-input" placeholder="Tulis pesan kamu di sini... (Kritik, saran, atau sekadar sapaan)" rows="4" required></textarea>
+        <button id="anon-submit-btn" onclick="sendAnonymousMessage()">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+
+      <div class="anon-box-container" id="anon-messages-list">
+        <p style="text-align:center; color:#7f7f7f; font-size:14px; padding: 20px;">Menghubungkan ke server...</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast-notification"></div>
+
+  <footer>
+    © 2026 Khalifah Amnu Annadif
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+    // KELAS CONFIG ASLI SESUAI DENGAN AKUN FIREBASE KAMU
+    const firebaseConfig = {
+      apiKey: "AIzaSyB_ArzmKSaDrwSR1epUTZ-YWmGaEFCRK5s",
+      authDomain: "porto-khalifah.firebaseapp.com",
+      databaseURL: "https://porto-khalifah-default-rtdb.firebaseio.com",
+      projectId: "porto-khalifah",
+      storageBucket: "porto-khalifah.appspot.com",
+      messagingSenderId: "148041187901",
+      appId: "1:148041187901:web:0c7865fc46ad0476b72054"
+    };
+
+    // Inisialisasi Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const messagesRef = ref(db, 'messages');
+
+    // Tampilkan List Pesan secara Real-time dari Cloud Firebase
+    onValue(messagesRef, (snapshot) => {
+      const container = document.getElementById('anon-messages-list');
+      container.innerHTML = ""; 
+      
+      const data = snapshot.val();
+      if (!data) {
+        container.innerHTML = `<p style="text-align:center; color:#7f7f7f; font-size:14px; padding: 20px;">Belum ada pesan yang masuk. Kirim pesan pertamamu!</p>`;
+        return;
+      }
+
+      // Membalik urutan agar pesan terbaru otomatis berada di paling atas
+      const messageList = Object.keys(data).map(key => data[key]).reverse();
+
+      messageList.forEach(msg => {
+        const bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        bubble.innerHTML = `
+          <div class="message-meta">
+            <span class="message-author"><i class="fa-solid fa-user"></i> ${msg.name}</span>
+            <span><i class="fa-regular fa-calendar-days"></i> ${msg.time}</span>
+          </div>
+          <p class="message-text">${msg.text}</p>
+        `;
+        container.appendChild(bubble);
+      });
+    });
+
+    // Kirim pesan ke Cloud Firebase
+    window.sendAnonymousMessage = function() {
+      const nameEl = document.getElementById('anon-name');
+      const inputEl = document.getElementById('anon-input');
+      
+      let name = nameEl.value.trim();
+      const text = inputEl.value.trim();
+
+      if (text === "") {
+        alert("Kolom pesan tidak boleh kosong!");
+        return;
+      }
+      
+      if (name === "") {
+        name = "Anonim";
+      }
+
+      // Pengambilan tanggal & waktu otomatis (Format: DD/MM/YYYY)
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const year = now.getFullYear();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      
+      const timeString = `${day}/${month}/${year} pukul ${hours}:${minutes}`;
+
+      // Simpan data langsung ke Google Firebase
+      push(messagesRef, {
+        name: name,
+        text: text,
+        time: timeString
+      }).then(() => {
+        // Reset kolom input jika data sukses dikirim
+        nameEl.value = "";
+        inputEl.value = "";
+      }).catch((error) => {
+        alert("Gagal mengirim pesan: " + error.message);
+      });
+    }
+  </script>
+
+  <script>
+    AOS.init({ duration:1000, once:false });
+
+    const words = ["Information Systems Student.", "Front-end Developer.", "UI/UX Designer."];
+    let i = 0;
+    let timer;
+
+    const hours = new Date().getHours();
+    let greetingText = "Hi";
+
+    if (hours >= 5 && hours < 12) greetingText = "Good Morning";
+    else if (hours >= 12 && hours < 17) greetingText = "Good Afternoon";
+    else if (hours >= 17 && hours < 21) greetingText = "Good Evening";
+    else greetingText = "Good Night";
+    document.getElementById('greeting').textContent = greetingText;
+
+    function typingEffect() {
+        let word = words[i].split("");
+        var loopTyping = function() {
+            if (word.length > 0) {
+                document.getElementById('typewriter').innerHTML += word.shift();
+            } else {
+                setTimeout(deletingEffect, 2000);
+                return false;
+            }
+            timer = setTimeout(loopTyping, 100);
+        };
+        loopTyping();
+    }
+
+    function deletingEffect() {
+        let word = words[i].split("");
+        var loopDeleting = function() {
+            if (word.length > 0) {
+                word.pop();
+                document.getElementById('typewriter').innerHTML = word.join("");
+            } else {
+                i = (words.length > i + 1) ? i + 1 : 0;
+                setTimeout(typingEffect, 500);
+                return false;
+            }
+            timer = setTimeout(loopDeleting, 50);
+        };
+        loopDeleting();
+    }
+
+    let currentAlbumIndex = 0;
+    const thumbnails = document.querySelectorAll('.thumb');
+
+    function changeAlbumItem(element, index) {
+      currentAlbumIndex = index;
+      thumbnails.forEach(t => t.classList.remove('active'));
+      element.classList.add('active');
+
+      const mainImg = document.getElementById('main-album-img');
+      const titleEl = document.getElementById('album-main-title');
+      const subEl = document.getElementById('album-sub-title');
+      const badgeEl = document.getElementById('album-badge-text');
+      const numEl = document.getElementById('album-card-num');
+
+      mainImg.style.opacity = '0.3';
+      setTimeout(() => {
+        mainImg.src = element.src;
+        titleEl.textContent = element.getAttribute('data-title');
+        subEl.textContent = element.getAttribute('data-sub');
+        badgeEl.textContent = element.getAttribute('data-badge');
+        numEl.textContent = String(index + 1).padStart(2, '0');
+        mainImg.style.opacity = '1';
+      }, 150);
+    }
+
+    function navigateAlbum(direction) {
+      let newIndex = currentAlbumIndex + direction;
+      if (newIndex >= thumbnails.length) newIndex = 0;
+      if (newIndex < 0) newIndex = thumbnails.length - 1;
+      changeAlbumItem(thumbnails[newIndex], newIndex);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        typingEffect();
+    });
+  </script>
+</body>
+</html>
